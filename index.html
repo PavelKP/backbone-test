@@ -11,10 +11,26 @@
 <body>
 	<button id="btn" class="button">Success</button>
 	<button id="btn-size" class="button">Increase size</button>
+
+	<div class="container">
+		<div id="rockets">
+			<h2>My Rocket</h2>
+			<div id="rocket"></div>
+		</div>
+	</div>
 </body>
 
 <script src="libraries/jquery-3.6.0-min.js"></script>
 <script src="libraries/underscore-1.12.0.js"></script>
 <script src="libraries/backbone-1.4.0.js"></script>
 <Script src="main.js"></Script>
+
+<!-- Шаблон -->
+<script type="text/template" id="rocketTpl">
+	<p>
+		Hello <%= name %> from template!
+	</p>
+</script>
+
+
 </html>
