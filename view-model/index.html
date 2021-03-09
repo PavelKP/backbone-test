@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="index.css" rel="stylesheet"><link>
+	<title>View - Model</title>
+</head>
+
+<body>
+	<div class="container">
+		<div>
+			<h2>My Rocket</h2>
+			<div id="rocket"></div>
+		</div>
+	</div>
+</body>
+
+<script src="../libraries/jquery-3.6.0-min.js"></script>
+<script src="../libraries/underscore-1.12.0.js"></script>
+<script src="../libraries/backbone-1.4.0.js"></script>
+<Script src="main.js"></Script>
+<script src="model/RocketModel.js"></script>
+<script src="view/RocketView.js"></script>
+
+
+<!-- Шаблон -->
+<script type="text/template" id="viewRocket">
+	Name:
+	<span class="name" contenteditable="true"><%- name %></span>
+	<div class="form-horizontal">
+        <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
+        <input class="size" type="number" value="<%- size %>" style="width: 40px;">
+        <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
+        Remove:
+        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
+    </div>
+    Description:
+    <span class="desc" contenteditable="true"><%- description %></span>
+</script>
+
+
+</html>
