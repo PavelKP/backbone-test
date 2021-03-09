@@ -27,9 +27,14 @@
 
 <!-- Шаблон -->
 <script type="text/template" id="rocketTpl">
-	<p>
-		Hello <%= name %> from template!
-	</p>
+	<hr />
+	<p>From template</p>
+	<p>Name: <%= name %></p>
+	<p>Size: <%= size %></p>
+	<p>Color: <%= color %></p>
+	<% if (nice) { %>
+		<p>Nice</p>
+	<% } %>
 </script>
 
 

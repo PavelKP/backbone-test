@@ -112,7 +112,15 @@ $(function() {
 
 	// Из шаблона
 	var compiledFromTpl = _.template($("#rocketTpl").html()); // Конвертируем шаблон в HTML?
-	$("#rocket").append(compiledFromTpl({ name: "Bo" }));
+
+	const data = {
+		name: "Bo",
+		size: 50,
+		color: "red",
+		nice: true,
+	}
+
+	$("#rocket").append(compiledFromTpl(data));
 
 	// append - jquery
 	// Добавляет контент внутрь выбранных элементов в конец, после имеющихся
