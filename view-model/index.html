@@ -23,7 +23,7 @@
 <Script src="main.js"></Script>
 <script src="model/RocketModel.js"></script>
 <script src="view/RocketView.js"></script>
-
+<script src="main.js"></script>
 
 <!-- Шаблон -->
 <script type="text/template" id="viewRocket">
@@ -34,7 +34,9 @@
         <input class="size" type="number" value="<%- size %>" style="width: 40px;">
         <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
         Remove:
-        <button class="deleteRow btn btn-small btn-danger"><i class="icon-remove icon-white">X</i></button>
+        <button class="deleteRow btn-danger buttonSquare">
+					<i class="icon-remove icon-white">X</i>
+				</button>
     </div>
     Description:
     <span class="desc" contenteditable="true"><%- description %></span>
