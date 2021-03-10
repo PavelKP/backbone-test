@@ -26,5 +26,43 @@ var RocketView = Backbone.View.extend({
     // Добавим view в элемент
     // this.$el - элемент, куда всё отрисовывается, получаем из модели при инстанцировании View
     this.$el.html(view);
-  }
+		console.log(json);
+  },
+
+  deleteRow: function() {
+    this.model.destroy(); // удаление модели и перерисовка
+    // Если модель будет удалена откуда-то извне, удалиться также и view
+  },
+
+  editValue: function() {
+      this.model.set({
+        name: this.$(".name").text(),
+				description: this.$(".desc").text(),
+				size: parseInt(this.$("input.size").attr("value")), // Эта строка берёт атрибут value, который не меняется при ручном вводе значений формы - ????
+																														// Не работает - получаю значение из модели, а не то, что ввёл
+																														// Видимо, потому, что берёт vlaue не из элемента, а именно из атрибута - фиксом, что засетили по дефолту
+																														// Модель не меняется, ререндера нет
+      }, {validate: true});
+
+			// document.querySelector(`.size`).value - работает 
+  },
+
+	changeSize: function(evt) { // Обновляем значение поля в модели и от этого перерендеривается view
+		var diff = parseInt($(evt.target).attr("data-rel")); // +10 или -10
+		var size = parseInt(this.model.get("size"));
+
+		this.model.set({
+			size: size + diff,
+		}, {validate: true});
+	}
+
 });
+
+/*
+Как работает поиск через $ в моделе
+
+this.$
+ƒ (selector) {
+      return this.$el.find(selector);
+  }
+*/

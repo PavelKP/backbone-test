@@ -24,3 +24,7 @@ body {
 .btn-danger:active {
 	background-color: crimson;
 }
+
+.remove-wrapper {
+	margin-top: 10px;
+}

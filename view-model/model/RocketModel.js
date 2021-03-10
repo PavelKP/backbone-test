@@ -5,7 +5,7 @@ var RocketModel = Backbone.Model.extend({
     size: 100,
   },
 
-  validator: function (attrs) {
+  validate: function (attrs) {
     if (attrs.size > 200 || attrs.size < 1) {
       console.log("incorrect size");
       return "incorrect size";

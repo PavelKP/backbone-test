@@ -4,7 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="index.css" rel="stylesheet"><link>
+	<link href="index.css" rel="stylesheet">
+	<link>
 	<title>View - Model</title>
 </head>
 
@@ -30,16 +31,18 @@
 	Name:
 	<span class="name" contenteditable="true"><%- name %></span>
 	<div class="form-horizontal">
-        <button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
-        <input class="size" type="number" value="<%- size %>" style="width: 40px;">
-        <button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
-        Remove:
-        <button class="deleteRow btn-danger buttonSquare">
-					<i class="icon-remove icon-white">X</i>
-				</button>
-    </div>
-    Description:
-    <span class="desc" contenteditable="true"><%- description %></span>
+		<button data-rel="-10" class="changeSize btn btn-small btn-primary">-</button>
+		<input class="size" type="number" value="<%- size %>" style="width: 40px;">
+		<button data-rel="10" class="changeSize btn btn-small btn-success">+</button>
+		<div class="remove-wrapper">
+			Remove:
+			<button class="deleteRow btn-danger buttonSquare">
+				<i class="icon-remove icon-white">X</i>
+			</button>
+		</div>
+	</div>
+Description:
+<span class="desc" contenteditable="true"><%- description %></span>
 </script>
 
 
