@@ -36,11 +36,9 @@ var RocketView = Backbone.View.extend({
 
   editValue: function() {
       this.model.set({
-        name: this.$(".name").text(),
+        name: this.$(".name").text(), // выбираем текстовое содержимое
 				description: this.$(".desc").text(),
-				size: parseInt(this.$("input.size").attr("value")), // Эта строка берёт атрибут value, который не меняется при ручном вводе значений формы - ????
-																														// Не работает - получаю значение из модели, а не то, что ввёл
-																														// Всё работает со старой версией JQUERY! Проверить синтаксис новой версии!!
+				size: parseInt(this.$("input.size").val()),  // выбираем value																	
       }, {validate: true});
 
 			// document.querySelector(`.size`).value - работает 
@@ -65,3 +63,11 @@ this.$
       return this.$el.find(selector);
   }
 */
+
+// size: parseInt(this.$("input.size").attr("value")), 
+// Эта строка берёт атрибут value, который не меняется при ручном вводе значений формы - ????
+// Не работает - получаю значение из модели, а не то, что ввёл
+// Всё работает со старой версией JQUERY! Проверить синтаксис новой версии!!
+
+// The value attribute is only used by browser to set initial value property on the element.
+// After page load ( or insertion into dom) the attribute is useless and does not change the same way the property does
