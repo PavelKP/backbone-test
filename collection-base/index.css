@@ -1,0 +1,30 @@
+body {
+	box-sizing: border-box;
+	padding: 10px;
+	margin: 0;
+}
+
+.buttonSquare {
+	width: 25px;
+	height: 25px;
+	margin: 0 5px 0 5px;
+}
+
+.form-horizontal {
+	padding: 5px;
+	border: 1px solid grey;
+}
+
+.btn-danger {
+	background-color: rgba(255,0,0, 0.4);
+	border: 1px solid rgb(109, 22, 0);
+	outline: none;
+}
+
+.btn-danger:active {
+	background-color: crimson;
+}
+
+.remove-wrapper {
+	margin-top: 10px;
+}
