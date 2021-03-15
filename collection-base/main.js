@@ -21,7 +21,8 @@ $(function () {
   var coll = new MyCollection();
 
   var car = new MyModel({
-    size: 75
+    size: 75,
+    text: 'this is car model'
   });
 
   coll.add(car);
@@ -33,5 +34,11 @@ $(function () {
   // Можем добавлять массив объектов
   coll.add([ {size: 80}, {color: `white`}, {} ]); 
 
+  console.log(coll.toJSON());
+
+  // Можно удалить ссылку на модель
+  coll.remove(car);
+  //{size: 80} - удалить нельзя, нет ссылки на эту модель
+  
   console.log(coll.toJSON());
 })
