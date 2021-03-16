@@ -13,7 +13,7 @@ var RocketView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.template = _.template($("#viewRocket").html()); // получаем шаблонизатор
+    this.template = _.template($("#viewRocket").html()); // получаем шаблонизатор, возвращает функцию, которая может быть вызвана для рендера этого шаблона
     this.listenTo(this.model, "change", this.render); // слушаем изменение модели, вызываем рендер
     this.listenTo(this.model, "destroy", this.remove); // слушаем удаление из модели, this.remove - внутренний метод
     this.render(); // При инициализации делаем первую отрисовку шаблона
@@ -21,7 +21,7 @@ var RocketView = Backbone.View.extend({
 
   render: function() {
     var json = this.model.toJSON(); // получаем данные из модели, при инстанцировании View    
-    var view = this.template(json); // получаем view
+    var view = this.template(json); // получаем view - HTML c засеченными данными
 
     // Добавим view в элемент
     // this.$el - элемент, куда всё отрисовывается, получаем из модели при инстанцировании View
