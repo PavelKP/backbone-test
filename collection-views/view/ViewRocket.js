@@ -14,7 +14,7 @@ var ViewRocket = Backbone.View.extend({
     // Подпишем view на изменение модели
     // this.model будет передано при инстанцировании view
     // связь модели и view
-    this.listenTo(this.model, `chamge`, this.render);
+    this.listenTo(this.model, `change`, this.render);
 
     // remove - удалит view из DOM без нашей помощи
     this.listenTo(this.model, `destroy`, this.remove);     
@@ -23,7 +23,6 @@ var ViewRocket = Backbone.View.extend({
   render() {
     const view = this.template(this.model.toJSON());
     this.$el.html(view); // вставляем разметку в страницу
-
     // $el - обращение к элементу view
     // Мы можем использовать метод .html() для получения содержимого элемента
     // .html( htmlString ) - заменить содержимое другим
@@ -49,7 +48,17 @@ var ViewRocket = Backbone.View.extend({
     }
   },
 
-  changeSize() {
-    // 21:00
+  // Это обработчик, в обработчики прилетают ивенты
+  changeSize(evt) { 
+    const diff = parseInt($(evt.target).attr(`data-rel`));
+    const size = this.model.get(`size`);
+
+    const res = this.model.set({
+      size: size + diff,
+    }, {validate: true})
+
+    if (!res) {
+      this.render();
+    }
   }
 })
