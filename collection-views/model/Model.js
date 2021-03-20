@@ -4,14 +4,14 @@ var RocketModel = Backbone.Model.extend({
 	defaults: {
 		name: 'name',
 		description: 'desc',
-		size: 100,
+		size: 0,
 	},
 
 	initialize () {},
 
 	validate (attrs) {
 		// Проверим, что ввели число и оно > 0
-		if (!(attrs.size > 0)) {
+		if (!(attrs.size >= 0)) {
 			console.log('Incorrect size');
 			return 'Incorrect size';
 		}
@@ -20,9 +20,13 @@ var RocketModel = Backbone.Model.extend({
 
 var RocketsCollection = Backbone.Collection.extend({
 	model: RocketModel,
+
+	// нестандартные параменты бэкбона
 	sortParam: 'size',
 	sortMode: 1, // "1" - обычный порядок, "-1" - обратный порядок
-	comporator: function(a, b) { // функция сортировки моделей
+
+	// С компаратором бэкбон умеет работать
+	comparator(a, b) { // функция сортировки моделей
 		if (a.get(this.sortParam) > b.get(this.sortParam)) {
 			return -1 * this.sortMode;
 		}

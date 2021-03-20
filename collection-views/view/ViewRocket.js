@@ -17,7 +17,7 @@ var ViewRocket = Backbone.View.extend({
     this.listenTo(this.model, `change`, this.render);
 
     // remove - удалит view из DOM без нашей помощи
-    this.listenTo(this.model, `destroy`, this.remove);     
+    this.listenTo(this.model, `destroy`, this.remove);
   },
 
   render() {
@@ -26,6 +26,8 @@ var ViewRocket = Backbone.View.extend({
     // $el - обращение к элементу view
     // Мы можем использовать метод .html() для получения содержимого элемента
     // .html( htmlString ) - заменить содержимое другим
+
+		return this.$el; // возвращяем отрендереный элемент
   },
 
   deleteRow() {
