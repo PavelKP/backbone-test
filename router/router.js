@@ -11,9 +11,12 @@ const Router = Backbone.Router.extend({
 	*/
 	
 	routes: {
-		"first": "first",
-		"second": "second",
-		"third": "third",
+		"": 												"first", // Добавляем для пустого адреса, когда просто index.html
+		"first": 										"first", // Для поиска 
+		"first/:query": 						"first", // Для поиска 
+		"first/:query/:category": 		"first", // Для поиска 
+		"second": 									"second",
+		"third": 										"third",
 	},
 
 	initialize() {
@@ -21,9 +24,24 @@ const Router = Backbone.Router.extend({
 		Backbone.history.start();
 	},
 
-	first () {
+	// Передаём параметры роутера как аргументы
+	first (query, category) {
 		$('.hero-unit').hide();
 		$('#page-first').show();
+
+		if (query) {
+			$('#page-first').find('.query').text(query);
+		}
+
+		if (category) {
+			$('#page-first').find('.category').text(category);
+		}
+
+		// Secret test page
+		if (query === 'test' && category != null) {
+			$('.hero-unit').hide();
+			$('#page-test').show();
+		}
 	},
 
 	second () {
